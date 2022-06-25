@@ -1,6 +1,6 @@
-# Getting started with Spring Boot + React + Gradle
+# Getting started with Spring Boot + React + Maven
 
-현재 작성된 문서는 springboot + react + Gradle 환경 구축을 위해 만들어진 Seed Project입니다.
+현재 작성된 문서는 springboot + react + Maven 환경 구축을 위해 만들어진 Seed Project입니다.
 
 ## 개발 환경
 
@@ -20,12 +20,12 @@
 ```bash
 $ mkdir clone-project
 $ cd clone-project
-$ curl -L -O -J https://github.com/kkn1125/springboot-react-mvn-seed/archive/refs/heads/main.zip && unzip *.zip -d . && rm -f springboot-react-mvn-seed-main.zip && shopt -s dotglob && mv -f springboot-react-mvn-seed-main/* ./ && rm -r -f springboot-react-mvn-seed-main/.zip
+$ curl -L -O -J https://github.com/kkn1125/springboot-react-mvn-seed/archive/refs/heads/main.zip && unzip *.zip -d . && rm -f springboot-react-mvn-seed-main.zip && shopt -s dotglob && mv -f springboot-react-mvn-seed-main/* ./ && rm -r -f springboot-react-mvn-seed-main/
 
-$ curl -L -O -J https://github.com/kkn1125/springboot-react-front-seed/archive/refs/heads/main.zip && unzip *.zip -d ./src/main/frontend/ && rm -f ./src/main/frontend/springboot-react-front-seed-main.zip && shopt -s dotglob && mv -f ./src/main/frontend/springboot-react-front-seed-main/* ./src/main/frontend/ && rm -r -f ./src/main/frontend/springboot-react-front-seed-main/.zip
+$ curl -L -O -J https://github.com/kkn1125/springboot-react-front-seed/archive/refs/heads/main.zip && unzip *.zip -d ./src/main/frontend/ && rm -f ./springboot-react-front-seed-main.zip && shopt -s dotglob && mv -f ./src/main/frontend/springboot-react-front-seed-main/* ./src/main/frontend/ && rm -r -f ./src/main/frontend/springboot-react-front-seed-main/
 
-$ ./mvnw build
-$ java -jar target/seedprj-0.0.1-SNAPSHOT.jar
+$ ./mvnw clean install -e
+$ cd target/ && java -jar seedprj-0.0.1-SNAPSHOT.jar
 
 # run server with react !
 ```
@@ -40,7 +40,7 @@ $ cd folder_name
 $ git clone https://github.com/kkn1125/springboot-react-front-seed ./src/main/frontend/
 
 $ ./mvnw clean install -e
-$ java -jar target/seedprj-0.0.1-SNAPSHOT.jar
+$ cd target/ && java -jar seedprj-0.0.1-SNAPSHOT.jar
 ```
 아래 경로로 접속합니다.
 
@@ -52,31 +52,29 @@ springboot-react-front-seed 저장소와 연결되어 있습니다.
 
 ## 파일 구조
 
-├┬─gradle/  
+.mvn/  
 │└┬─wrapper/  
-│　├──gradle-wrapper.jar  
-│　└──gradle-wrapper.properties  
+│　├──maven-wrapper.jar  
+│　└──maven-wrapper.properties  
 ├┬─src/  
 │├┬─main/  
 ││├──frontend/  
-││├┬─java/com/gradleseed/  
-│││└┬─prj/  
-│││　├┬─restController/  
-│││　│└──TestRestController.java  
-│││　└──PrjApplication.java  
+││├┬─java/com/seedprj/    
+│││├┬─restController/  
+││││└──TestRestController.java  
+│││└──PrjApplication.java  
 ││└┬─resources/  
 ││　├──static/  
 ││　└──application.properties  
 │└┬─test/  
-│　└┬─java/com/gradleseed/  
-│　　└┬─prj/  
-│　　　└──PrjApplicationTests.java  
+│　└┬─java/com/seedprj/  
+│　　└──SredprjApplicationTests.java  
 ├──.gitignore  
 ├──.gitmodules  
-├──build.gradle  
-├──gradlew  
-├──gradlew.bat  
-└──settings.gradle  
+├──mvnw  
+├──mvnw.cmd  
+├──pom.xml  
+└──README.md  
 
 <!-- gradle/
  wrapper/
